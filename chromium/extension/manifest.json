@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Connection reset extension",
+  "version": "1.0",
+  "description": "Redirects connection resets to a custom static page.",
+  "permissions": [
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["block_page.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
