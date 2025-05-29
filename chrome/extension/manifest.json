@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Custom Error Page Redirect",
+  "version": "1.0",
+  "description": "Redirects network error pages to a custom static page.",
+  "permissions": [
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["custom_error.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
