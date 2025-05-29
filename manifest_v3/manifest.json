@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Ring Zero Dome block page extension (service worker)",
-  "version": "0.3",
-  "description": "Redirects connection resets to a custom block page.",
+  "name": "Gigasafe gateway extenstion",
+  "version": "1.0",
+  "description": "Redirects connection resets to a custom static page.",
   "permissions": [
     "webRequest"
   ],
