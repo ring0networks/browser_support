@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Connection reset extension",
-  "version": "1.0",
+  "name": "Connection reset extension (service worker)",
+  "version": "0.3",
   "description": "Redirects connection resets to a custom static page.",
   "permissions": [
     "webRequest"
