@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Connection reset extension (background script)",
+  "version": "0.2",
+  "description": "Redirects connection resets to a custom static page.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": [
+    "block_page.html"
+  ]
+}
