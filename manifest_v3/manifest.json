@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Ring Zero Dome block page extension (service worker)",
+  "name": "802.11 Networks block page extension (service worker)",
   "version": "0.3",
   "description": "Redirects connection resets to a custom block page.",
   "permissions": [
