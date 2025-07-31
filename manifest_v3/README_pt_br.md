@@ -3,7 +3,7 @@
 Copyright (C) 2025 Ring Zero Desenvolvimento de Software LTDA.
 All rights reserved.
 -->
-# Extensão para detecção de *Connection Resets* (Manifest V3)
+# Extensão para exibição de página de bloqueio do Ring Zero Dome (Manifest V3)
 
 Esta extensão detecta *connection resets* em navegadores baseados no Chromium e apresenta uma página de bloqueio personalizada ao invés de uma mensagem de erro do navegador.
 Ela usa *service workers* e é compatível com [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3).

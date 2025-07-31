@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Connection reset extension (service worker)",
+  "name": "Ring Zero Dome block page extension (service worker)",
   "version": "0.3",
-  "description": "Redirects connection resets to a custom static page.",
+  "description": "Redirects connection resets to a custom block page.",
   "permissions": [
     "webRequest"
   ],

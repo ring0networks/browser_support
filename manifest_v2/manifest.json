@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Connection reset extension (background script)",
+  "name": "Ring Zero Dome block page extension (background script)",
   "version": "0.2",
-  "description": "Redirects connection resets to a custom static page.",
+  "description": "Redirects connection resets to a custom block page.",
   "permissions": [
     "webRequest",
     "webRequestBlocking",

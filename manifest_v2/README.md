@@ -3,7 +3,7 @@
 Copyright (C) 2025 Ring Zero Desenvolvimento de Software LTDA.
 All rights reserved.
 -->
-# Connection Reset Extension (Manifest V2)
+# Ring Zero Dome Block Page Extension (Manifest V2)
 
 This extension detects connection resets in chromium browsers and shows a custom static page instead of a browser error.
 It uses background scripts and is compatible with [Manifest V2](https://developer.chrome.com/docs/extensions/mv2/content-scripts).
