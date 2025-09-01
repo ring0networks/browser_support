@@ -18,7 +18,7 @@ The extension is designed to work on chromium-based browsers, including Google C
 
 ### 1. Save the files
 
-First, create a new directory on your computer (for example, connectionResEtextension) and copy all the files available to it.
+First, create directory `BlockPageExtension` on your computer and copy all the files from this directory to it.
 
 ### 2. Install the extension on your browser
 
@@ -30,7 +30,7 @@ Google Chrome:
 - Enter `chrome://extensions` in the address bar and press `Enter`.
 - In the upper right corner of the extensions page, activate the "developer mode".
 - Click the "Load unpacked" button.
-- Navigate to the `ConnectionResetExtension` directory you have created and select it.
+- Navigate to the `BlockPageExtension` directory you have created and select it.
 
 The extension will appear on your list of installed extensions.
 
@@ -40,7 +40,7 @@ Microsoft Edge:
 - Enter `edge://extensions` in the address bar and press `Enter`.
 - In the lower left corner of the page, activate the "developer mode".
 - Click "Load unpacked".
-- Browse to the `ConnectionResetExtension` directory and select it.
+- Browse to the `BlockPageExtension` directory and select it.
 
 The extension will appear on your list of installed extensions.
 
@@ -52,6 +52,6 @@ The extension will appear on your list of installed extensions.
 To test if the extension is working correctly:
 
 - Activate Ring Zero Dome.
-- From a station or device whose traffic is inspected by Ring Zero Dome, go to one of the browsers listed above, already with the extension installed ConnectionSetextension.
-- In the chosen browser, try to access a URL relating to a domain contained in one of the Ring Zero Dome blocklists.
-- The connection should be locked and the custom lock page should be displayed by the browser.
+- From a station or device whose traffic is inspected by Ring Zero Dome, install the Ring Zero Dome Block Page Extension in the browser of choice.
+- In the chosen browser, clear navigation data and try to access a URL corresponding to one of the blocked Ring Zero Dome categories.
+- The connection should be blocked and the custom lock page should be displayed by the browser.
