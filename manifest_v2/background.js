@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
+// SPDX-License-Identifier: MIT
+
 // background.js
 // This script runs in the background as a service worker for the Chrome extension.
 // It is compatible with Firefox and Edge as well.

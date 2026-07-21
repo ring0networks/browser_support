@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD013 -->
 <!--
-Copyright (C) 2025 Ring Zero Desenvolvimento de Software LTDA.
-All rights reserved.
+SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
+SPDX-License-Identifier: MIT
 -->
 # Ring Zero Dome Block Page Extension (Manifest V2)
 
