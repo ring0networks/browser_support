@@ -23,6 +23,30 @@ Two versions are available:
 
 ### Customizing the extension
 
+#### Quick way: `./customize.sh`
+
+The [`customize.sh`](./customize.sh) script generates a customized, ready-to-load copy of
+the extension under `build/`, leaving the tracked source untouched. Run it with no arguments
+to be prompted for each field (it asks which manifest version to build — **Manifest V3 by
+default**; an empty answer to any prompt keeps the current value):
+
+```sh
+./customize.sh
+```
+
+Or pass any subset of options (unspecified fields are still prompted, unless `--yes` is given):
+
+```sh
+./customize.sh --version both --name "My Filter" --heading "Access blocked" --logo my-logo.png --yes
+```
+
+It can set the extension name, the block page title / heading / message, and the logo image
+(`dome-logo.png`); the "powered by" image and its link are left untouched. Run
+`./customize.sh --help` for the full option list. Load the resulting `build/<version>/`
+directory via *Load unpacked* (see each version's README).
+
+To customize by hand instead, edit the files directly as described below.
+
 All customizable assets live inside each version directory (`manifest_v3/` and
 `manifest_v2/`). The two directories are kept identical except for their `manifest.json`,
 so **apply every change to both directories** (or to the single one you intend to ship).

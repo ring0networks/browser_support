@@ -10,10 +10,23 @@ error. This extension intercepts that reset and replaces the tab with a branded 
 page (`block_page.html`, Portuguese: "Acesso Bloqueado") so the user knows the block was
 intentional. All other network errors are left to the browser.
 
-This is a **public, MIT-licensed** repository. There is **no build system, no tests, no
+This is a **public, MIT-licensed** repository. There is **no compiler, no tests, no
 lint, and no package manager** — the extension is plain JS/HTML/JSON loaded unpacked into
 the browser. "Building" means loading a version directory via `chrome://extensions` →
 developer mode → *Load unpacked* (per-browser steps are in each version's `README.md`).
+
+The one script is [`customize.sh`](./customize.sh): it copies a chosen version
+(`manifest_v3` and/or `manifest_v2`) into `build/<version>/` and applies customizations
+(extension name, block page title/heading/message, logo) to the copy, leaving the tracked
+source pristine. It is interactive by default with optional flags (`--version` (default `v3`), `--name`,
+`--title`, `--heading`, `--message`, `--logo`, `--yes`). `build/` is git-ignored. The
+`powered-by-ringzero.png` image and its link are intentionally never modified.
+
+`customize.sh` follows the Ring Zero shell conventions: `#!/usr/bin/env bash`,
+`set -eo pipefail`, and a self-contained BSD/GNU-safe `sed_i` helper (it does **not** source
+`dome_admin`'s `setup-common.sh`). HTML/JSON escaping goes through `sed` rather than bash
+`${//}` substitution, because bash 5.2's `patsub_replacement` makes `&` in a replacement
+mean "the matched text" — which silently corrupts HTML entities.
 
 ## Two manifest versions
 
