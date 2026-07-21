@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Ring Zero Dome block page extension (service worker)",
-  "version": "0.3",
+  "version": "0.1.0",
   "description": "Redirects connection resets to a custom block page.",
   "permissions": [
     "webRequest"
