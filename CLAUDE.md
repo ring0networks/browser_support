@@ -17,10 +17,11 @@ developer mode → *Load unpacked* (per-browser steps are in each version's `REA
 
 The one script is [`customize.sh`](./customize.sh): it copies a chosen version
 (`manifest_v3` and/or `manifest_v2`) into `build/<version>/` and applies customizations
-(extension name, block page title/heading/message, logo) to the copy, leaving the tracked
-source pristine. It is interactive by default with optional flags (`--version` (default `v3`), `--name`,
-`--title`, `--heading`, `--message`, `--logo`, `--yes`). `build/` is git-ignored. The
-`powered-by-ringzero.png` image and its link are intentionally never modified.
+(extension name, block page title/heading/message, logo, favicon) to the copy, leaving the
+tracked source pristine. It is interactive by default with optional flags (`--version`
+(default `v3`), `--name`, `--title`, `--heading`, `--message`, `--logo`, `--favicon`,
+`--yes`). `build/` is git-ignored. The `powered-by-ringzero.png` image and its link are
+intentionally never modified.
 
 `customize.sh` follows the Ring Zero shell conventions: `#!/usr/bin/env bash`,
 `set -eo pipefail`, and a self-contained BSD/GNU-safe `sed_i` helper (it does **not** source

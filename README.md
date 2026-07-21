@@ -40,9 +40,9 @@ Or pass any subset of options (unspecified fields are still prompted, unless `--
 ./customize.sh --version both --name "My Filter" --heading "Access blocked" --logo my-logo.png --yes
 ```
 
-It can set the extension name, the block page title / heading / message, and the logo image
-(`dome-logo.png`); the "powered by" image and its link are left untouched. Run
-`./customize.sh --help` for the full option list. Load the resulting `build/<version>/`
+It can set the extension name, the block page title / heading / message, the logo image
+(`dome-logo.png`) and the favicon (`favicon.ico`); the "powered by" image and its link are
+left untouched. Run `./customize.sh --help` for the full option list. Load the resulting `build/<version>/`
 directory via *Load unpacked* (see each version's README).
 
 To customize by hand instead, edit the files directly as described below.
@@ -83,9 +83,10 @@ Brazilian Portuguese by default. To change the wording:
 
 #### 3. Change the logo and branding
 
-The block page references two images that sit next to it in the same directory:
+The block page references three images that sit next to it in the same directory:
 
 - `dome-logo.png` — the large logo at the top of the page (`<img class="logo">`).
+- `favicon.ico` — the browser-tab icon (`<link rel="icon">` in `<head>`).
 - `powered-by-ringzero.png` — the "powered by" image near the bottom (`<img>` inside
   `.powered`).
 
