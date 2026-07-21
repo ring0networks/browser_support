@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
+# SPDX-License-Identifier: MIT
+
+[changelog]
+header = ""
+body = """
+{% for group, commits in commits | group_by(attribute="group") %}
+### {{ group | upper_first }}
+{% for commit in commits %}
+- {{ commit.message | upper_first }} ([`{{ commit.id | truncate(length=7, end="") }}`]({{ commit.id }}))
+{%- endfor %}
+{% endfor %}
+"""
+trim = true
+footer = ""
+
+[git]
+conventional_commits = true
+filter_unconventional = true
+split_commits = false
+commit_parsers = [
+  { message = "^feat",     group = "Features" },
+  { message = "^fix",      group = "Bug Fixes" },
+  { message = "^harden",   group = "Security" },
+  { message = "^refactor", group = "Refactor" },
+  { message = "^ci",       group = "CI" },
+  { message = "^docs",     group = "Documentation" },
+  { message = "^chore",    skip = true },
+  { message = "^test",     skip = true },
+]
+protect_breaking_commits = false
+filter_commits = true
+tag_pattern = "v[0-9].*"
+topo_order = false
+sort_commits = "newest"

@@ -84,6 +84,24 @@ Adapt the comment syntax to the file: `//` for `.js`, `<!-- … -->` for `.html`
 `manifest.json` files carry **no** header (JSON has no comment syntax). Do not reintroduce
 the old `Copyright … All rights reserved.` blocks — they contradict the MIT license.
 
+## Releasing
+
+Releases are tag-driven (`.github/workflows/release.yml`). The committed `manifest.json`
+`version` is the source of truth; the tag mirrors it. Both manifests always share one version.
+
+1. `scripts/bump-version.sh X.Y.Z` — sets `version` in **both** manifests.
+2. Commit as `chore: release vX.Y.Z` (git-cliff skips `chore`, so it stays out of the changelog).
+3. `git tag vX.Y.Z && git push --tags`.
+
+Pushing the tag runs CI: `resolve-version → changelog (git-cliff) → package → release`. The
+`package` job first runs `scripts/verify-version.sh`, which **fails the release** if the tag's
+number doesn't match the committed manifest version — so a mistyped tag can't ship.
+`scripts/package.sh` bundles the shippable extension (the two `manifest_*` dirs plus
+`README.md`, `LICENSE`, `customize.sh`) into `ringzero-dome-block-page-<version>.tar.gz`,
+excluding development/CI files (`.git`, `.github`, `scripts/`, `cliff.toml`, `.gitignore`,
+`CLAUDE.md`, `build/`); manifests are bundled as committed — no stamping.
+`workflow_dispatch` produces a draft for testing and skips the verify step.
+
 ## Conventions specific to this repo
 
 - Every doc has an English `README.md` and a Portuguese `README_pt_br.md` — keep the pair in
