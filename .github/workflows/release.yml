@@ -79,7 +79,7 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: package
-          path: ringzero-dome-block-page-${{ needs.resolve-version.outputs.version }}.tar.gz
+          path: ringzero-dome-browser-extension-${{ needs.resolve-version.outputs.version }}.tar.gz
           retention-days: 1
 
   release:
@@ -102,4 +102,4 @@ jobs:
           tag_name: ${{ needs.resolve-version.outputs.version }}
           draft: ${{ github.event_name == 'workflow_dispatch' }}
           body_path: CHANGELOG.md
-          files: ringzero-dome-block-page-${{ needs.resolve-version.outputs.version }}.tar.gz
+          files: ringzero-dome-browser-extension-${{ needs.resolve-version.outputs.version }}.tar.gz

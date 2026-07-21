@@ -97,7 +97,7 @@ Pushing the tag runs CI: `resolve-version → changelog (git-cliff) → package 
 `package` job first runs `scripts/verify-version.sh`, which **fails the release** if the tag's
 number doesn't match the committed manifest version — so a mistyped tag can't ship.
 `scripts/package.sh` bundles the shippable extension (the two `manifest_*` dirs plus
-`README.md`, `LICENSE`, `customize.sh`) into `ringzero-dome-block-page-<version>.tar.gz`,
+`README.md`, `LICENSE`, `customize.sh`) into `ringzero-dome-browser-extension-<version>.tar.gz`,
 excluding development/CI files (`.git`, `.github`, `scripts/`, `cliff.toml`, `.gitignore`,
 `CLAUDE.md`, `build/`); manifests are bundled as committed — no stamping.
 `workflow_dispatch` produces a draft for testing and skips the verify step.
