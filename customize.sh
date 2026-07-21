@@ -70,6 +70,7 @@ Options:
   --heading TEXT        Block page heading (<h1>)
   --message TEXT        Block page message (<p>)
   --logo PATH           Image file to use as the logo (copied over dome-logo.png)
+  --favicon PATH        Icon file for the browser tab (copied over favicon.ico)
   --output DIR          Output directory (default: ./build)
   -y, --yes             Non-interactive: use flags/defaults, do not prompt
   -h, --help            Show this help and exit
@@ -87,6 +88,7 @@ TITLE=""
 HEADING=""
 MESSAGE=""
 LOGO=""
+FAVICON=""
 OUTPUT="$SCRIPT_DIR/build"
 ASSUME_YES=0
 
@@ -102,6 +104,7 @@ while [[ $# -gt 0 ]]; do
     --heading) HEADING="$2"; HEADING_SET=1; shift 2 ;;
     --message) MESSAGE="$2"; MESSAGE_SET=1; shift 2 ;;
     --logo)    LOGO="$2";    shift 2 ;;
+    --favicon) FAVICON="$2"; shift 2 ;;
     --output)  OUTPUT="$2";  shift 2 ;;
     -y|--yes)  ASSUME_YES=1; shift ;;
     -h|--help) usage; exit 0 ;;
@@ -136,11 +139,17 @@ if [[ "$ASSUME_YES" -eq 0 ]]; then
   if [[ -z "$LOGO" ]]; then
     read -r -p "Path to a new logo image (empty = keep): " LOGO || true
   fi
+  if [[ -z "$FAVICON" ]]; then
+    read -r -p "Path to a new favicon (empty = keep): " FAVICON || true
+  fi
 fi
 
-# Validate the logo path up front so we fail before writing anything.
+# Validate the image paths up front so we fail before writing anything.
 if [[ -n "$LOGO" && ! -r "$LOGO" ]]; then
   fail_with_message "logo file not found or not readable: $LOGO"
+fi
+if [[ -n "$FAVICON" && ! -r "$FAVICON" ]]; then
+  fail_with_message "favicon file not found or not readable: $FAVICON"
 fi
 
 ################################################################################
@@ -176,6 +185,7 @@ for dir in "${VERSION_DIRS[@]}"; do
   [[ "$HEADING_SET" -eq 1 ]] && sed_i "s|<h1>.*</h1>|<h1>$HEADING_REPL</h1>|" "$page"
   [[ "$MESSAGE_SET" -eq 1 ]] && sed_i "s|<p>.*</p>|<p>$MESSAGE_REPL</p>|" "$page"
   [[ -n "$LOGO" ]]          && cp "$LOGO" "$dst/dome-logo.png"
+  [[ -n "$FAVICON" ]]       && cp "$FAVICON" "$dst/favicon.ico"
 
   info "built $dst"
 done
