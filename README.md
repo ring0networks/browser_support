@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD013 -->
 <!--
-Copyright (C) 2025 Ring Zero Desenvolvimento de Software LTDA.
-All rights reserved.
+SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
+SPDX-License-Identifier: MIT
 -->
 # Browser related utilities
 
@@ -31,3 +31,7 @@ In order to customize the extension, you may:
 
 - Change the extension name at [`manifest.json`](./manifest_v3/manifest.json).
 - Replace the blockin page altogether ([`block_page.html`](./manifest_v3/block_page.html) or customize it by changing its contents and logo.
+
+## License
+
+MIT
