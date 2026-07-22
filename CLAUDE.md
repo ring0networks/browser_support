@@ -10,7 +10,7 @@ error. This extension intercepts that reset and replaces the tab with a branded 
 page (`block_page.html`, Portuguese: "Acesso Bloqueado") so the user knows the block was
 intentional. All other network errors are left to the browser.
 
-This is a **public, MIT-licensed** repository. There is **no compiler, no tests, no
+This is a **public, GPL-2.0-only-licensed** repository. There is **no compiler, no tests, no
 lint, and no package manager** — the extension is plain JS/HTML/JSON loaded unpacked into
 the browser. "Building" means loading a version directory via `chrome://extensions` →
 developer mode → *Load unpacked* (per-browser steps are in each version's `README.md`).
@@ -69,20 +69,20 @@ Two intended customization points (both READMEs document them):
 
 ## Licensing and headers
 
-The repo is MIT-licensed (`LICENSE`, `Copyright (c) 2026 Ring Zero Desenvolvimento de
-Software LTDA`), following the same standard as the public `ringzero/luanftables` repo.
+The repo is licensed under the GNU General Public License v2.0 only (`LICENSE`, GPL-2.0-only,
+`Copyright (c) 2026 Ring Zero Desenvolvimento de Software LTDA`).
 
 Every text source file carries a two-line SPDX header — and here, unlike the private Ring
-Zero repos, it **includes** `SPDX-License-Identifier: MIT` because this repo is public:
+Zero repos, it **includes** `SPDX-License-Identifier: GPL-2.0-only` because this repo is public:
 
 ```js
 // SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GPL-2.0-only
 ```
 
 Adapt the comment syntax to the file: `//` for `.js`, `<!-- … -->` for `.html` and `.md`.
 `manifest.json` files carry **no** header (JSON has no comment syntax). Do not reintroduce
-the old `Copyright … All rights reserved.` blocks — they contradict the MIT license.
+the old `Copyright … All rights reserved.` blocks — they contradict the GPL-2.0 license.
 
 ## Releasing
 

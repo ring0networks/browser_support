@@ -7,7 +7,7 @@
 # pre-release suffix (e.g. -test) are stripped before comparing.
 #
 # SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: GPL-2.0-only
 
 set -euo pipefail
 
