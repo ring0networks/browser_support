@@ -9,7 +9,7 @@
 # matches the committed version beforehand.
 #
 # SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: GPL-2.0-only
 
 set -euo pipefail
 

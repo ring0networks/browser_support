@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD013 -->
 <!--
 SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
-SPDX-License-Identifier: MIT
+SPDX-License-Identifier: GPL-2.0-only
 -->
 # Browser related utilities
 
@@ -108,4 +108,4 @@ places so the redirect still works:
 
 ## License
 
-MIT
+GNU General Public License v2.0 only (GPL-2.0-only). See [`LICENSE`](./LICENSE).

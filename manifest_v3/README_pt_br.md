@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD013 -->
 <!--
 SPDX-FileCopyrightText: (c) 2026 Ring Zero Desenvolvimento de Software LTDA
-SPDX-License-Identifier: MIT
+SPDX-License-Identifier: GPL-2.0-only
 -->
 # Extensão para exibição de página de bloqueio do Ring Zero Dome (Manifest V3)
 
