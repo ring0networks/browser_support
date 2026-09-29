@@ -14,6 +14,11 @@ on:
         required: true
         default: 'v0.0.0-test'
 
+# Every job only reads the checkout; the one that publishes raises its own to
+# contents: write, and a job-level block replaces this one rather than adding to it.
+permissions:
+  contents: read
+
 jobs:
   resolve-version:
     name: Resolve version
