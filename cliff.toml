@@ -3,11 +3,14 @@
 
 [changelog]
 header = ""
+# The commit link carries the full URL. A release note is rendered on a page under
+# /releases/tag/, so a bare SHA is a relative href and resolves to a tag that does
+# not exist; GitHub's markdown API leaves it exactly as written.
 body = """
 {% for group, commits in commits | group_by(attribute="group") %}
 ### {{ group | upper_first }}
 {% for commit in commits %}
-- {{ commit.message | upper_first }} ([`{{ commit.id | truncate(length=7, end="") }}`]({{ commit.id }}))
+- {{ commit.message | upper_first }} ([`{{ commit.id | truncate(length=7, end="") }}`](https://github.com/ring0networks/browser_support/commit/{{ commit.id }}))
 {%- endfor %}
 {% endfor %}
 """
