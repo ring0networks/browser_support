@@ -102,6 +102,14 @@ excluding development/CI files (`.git`, `.github`, `scripts/`, `cliff.toml`, `.g
 `CLAUDE.md`, `build/`); manifests are bundled as committed — no stamping.
 `workflow_dispatch` produces a draft for testing and skips the verify step.
 
+## CI checks
+
+- Every action runs on Node.js 24. A new action, or a new major, is checked first: its
+  `action.yml` declares `using: node24`, or it is a composite action.
+- Every pull request checks every workflow with actionlint 1.7.12
+  (`.github/workflows/checks.yml`), whose archive is verified by its SHA-256.
+- A pull request that changes a workflow merges only after that workflow passed on it.
+
 ## Conventions specific to this repo
 
 - Every doc has an English `README.md` and a Portuguese `README_pt_br.md` — keep the pair in
