@@ -102,6 +102,11 @@ excluding development/CI files (`.git`, `.github`, `scripts/`, `cliff.toml`, `.g
 `CLAUDE.md`, `build/`); manifests are bundled as committed — no stamping.
 `workflow_dispatch` produces a draft for testing and skips the verify step.
 
+A pull request that changes `release.yml`, `cliff.toml` or `scripts/` runs the release as a
+dry run, with the version `v<manifest version>-dry-run`. It writes the changelog, runs
+`verify-version.sh`, builds the tarball and prints both. It uploads no artifact and skips
+the `release` job, so it creates no release and no tag.
+
 ## CI checks
 
 - Every action runs on Node.js 24. A new action, or a new major, is checked first: its
