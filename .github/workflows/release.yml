@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [resolve-version]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [resolve-version, changelog]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Verify tag matches manifest version
         if: github.event_name == 'push'
@@ -94,15 +94,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: changelog
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           name: package
 
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.resolve-version.outputs.version }}
           draft: ${{ github.event_name == 'workflow_dispatch' }}
