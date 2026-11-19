@@ -91,7 +91,9 @@ Releases are tag-driven (`.github/workflows/release.yml`). The committed `manife
 
 1. `scripts/bump-version.sh X.Y.Z` — sets `version` in **both** manifests.
 2. Commit as `chore: release vX.Y.Z` (git-cliff skips `chore`, so it stays out of the changelog).
-3. `git tag vX.Y.Z && git push --tags`.
+3. `git tag -a vX.Y.Z -F <file> && git push --tags`, with a message that describes the release: what it brings, why, and what a user does about it.
+   The changelog job puts that message at the top of the notes, above the subjects that git-cliff groups.
+   A lightweight tag, or a message that only repeats the version, gives notes with no context, and the job warns.
 
 Pushing the tag runs CI: `resolve-version → changelog (git-cliff) → package → release`. The
 `package` job first runs `scripts/verify-version.sh`, which **fails the release** if the tag's
