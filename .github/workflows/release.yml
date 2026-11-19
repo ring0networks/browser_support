@@ -75,6 +75,28 @@ jobs:
         env:
           OUTPUT: CHANGELOG.md
 
+      # The message of the annotated tag says what the release is about, and it
+      # opens the notes. checkout can leave the tag lightweight, so it is fetched
+      # again. A manual run or a dry run has no tag, and its notes open with the
+      # subjects alone.
+      - name: Open the notes with the message of the tag
+        if: github.event_name == 'push'
+        env:
+          VERSION: ${{ needs.resolve-version.outputs.version }}
+        run: |
+          git fetch --force origin "refs/tags/$VERSION:refs/tags/$VERSION"
+          if [ "$(git cat-file -t "refs/tags/$VERSION")" != tag ]; then
+            echo "::warning::$VERSION is a lightweight tag, so the notes carry no description"
+            exit 0
+          fi
+          message=$(git for-each-ref --format='%(contents)' "refs/tags/$VERSION" | sed '/-----BEGIN PGP SIGNATURE-----/,$d')
+          if [ -z "$message" ] || [ "$message" = "$VERSION" ]; then
+            echo "::warning::the message of $VERSION does not describe the release"
+            exit 0
+          fi
+          { printf '%s\n\n' "$message"; cat CHANGELOG.md; } > notes.tmp
+          mv notes.tmp CHANGELOG.md
+
       # a pull request uploads nothing, so its dry run leaves no artifact
       - name: Show the dry run
         if: github.event_name == 'pull_request'
